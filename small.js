@@ -3,22 +3,6 @@
   game.width = window.screen.availWidth
 })()
 
-function handleKeys (){
-  window.onkeydown = (key) => {
-    if (controls.up.includes(key.keyCode)){
-      keyspressed = keyspressed.push("up")
-    } else if (controls.down.includes(key.keyCode)) {
-      keyspressed.down = true
-    } else if (controls.right.includes(key.keyCode)) {
-      keyspressed.right = true
-    } else if (controls.left.includes(key.keyCode)) {
-      keyspressed.left = true
-    }
-  }
-}
-
-handleKeys()
-
 function tick (){
   switch (island){
     case 1:
@@ -32,6 +16,12 @@ function tick (){
     case 3:
       // island is 3!
       island3tick()
+      break;
+    case "credits":
+      openCredits()
+      break;
+    case "main menu":
+      mainmenu()
       break;
     default:
       // lol island is not 1, 2 or 3
@@ -47,3 +37,6 @@ function gameLoop(){
 }
 
 gameLoop()
+
+
+
