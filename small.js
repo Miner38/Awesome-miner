@@ -4,6 +4,8 @@
 })()
 
 function tick (){
+  // how to code like yandev
+  // expect, better*
   switch (island){
     case 1:
       // island is 1!
@@ -28,7 +30,9 @@ function tick (){
       harharislandnotfound()
       break;
   }
-}
+  if (Date.time % 30 == 0) /*every 30 millseconds*/ {tick++ /* add 1 to tick */}
+
+}1
 
 function gameLoop(){
   while (true){
@@ -37,6 +41,3 @@ function gameLoop(){
 }
 
 gameLoop()
-
-
-
