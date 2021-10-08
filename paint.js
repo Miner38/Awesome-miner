@@ -30,7 +30,7 @@ function drawAcircle(centerX, centerY, radius, fillColor = "transparent", outlin
 
 function drawImage(url, x, y) {
   var daImage = new Image();
-  var daImage = src = url;
+  var daImage.src = url;
   daImage.onload = () => {
     ctx.drawImage(daImage, x, y)
   }
