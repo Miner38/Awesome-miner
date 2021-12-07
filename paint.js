@@ -3,7 +3,7 @@
 */
 
 const pi = Math.PI
-var ctx = canvas.getContext('2d')
+var ctx = game.getContext('2d')
 function makeRect(color, x, y, width, height) {
   ctx.fillStyle = color
   ctx.fillRect(x, y, width, height)
@@ -29,8 +29,16 @@ function drawAcircle(centerX, centerY, radius, fillColor = "transparent", outlin
 }
 
 function drawImage(url, x, y) {
-  var daImage = new Image();
-  var daImage.src = url;
+  daImage = new Image();
+  daImage.src = url;
+  daImage.onload = () => {
+    ctx.drawImage(daImage, x, y)
+  }
+}
+
+function drawAsset(assetName, x, y) {
+  daImage = new Image();
+  daImage.src = `./r-pack/${r-pack}/${assetName}`;
   daImage.onload = () => {
     ctx.drawImage(daImage, x, y)
   }

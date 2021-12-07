@@ -1,7 +1,7 @@
-(function reloadGame () {
+function reloadGame () {
   game.height = window.screen.availHeight
   game.width = window.screen.availWidth
-})()
+}
 
 function tick (){
   // how to code like yandev
@@ -26,18 +26,16 @@ function tick (){
       mainmenu()
       break;
     default:
-      // lol island is not 1, 2 or 3
+      // island is not 1, 2 or 3
       harharislandnotfound()
       break;
   }
-  if (Date.time % 30 == 0) /*every 30 millseconds*/ {tick++ /* add 1 to tick */}
-
-}1
+  if (Date.time % 30 == 0) /*every 30 millseconds*/ {ticks++ /* add 1 to tick */}
+  tick(1)
+}
 
 function gameLoop(){
-  while (true){
-    tick()
-  }
+  tick()
 }
 
 gameLoop()
