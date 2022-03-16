@@ -1,41 +1,49 @@
+function wait(amount) {
+  let waitStart = Date.time
+  let waitEnd = waitStart + amount
+  while (Date.time < waitEnd) { }
+  return `waited for ${amount} seconds`
+}
+
+// moving to somewhere else
+
+document.onmousemove = function (e) {
+  mouseX = e.pageX
+  mouseY = e.pageY
+  // console.log(`mousemove mouse x:${mouseX} mouse y:${mouseY}`)
+}
+game.onmousedown = () => mouseDown = true
+game.onmouseup = () => mouseDown = false
+window.onload = () => window.requestAnimationFrame(tick)
+
 function reloadGame () {
   game.height = window.screen.availHeight
   game.width = window.screen.availWidth
+  portalPositions = {
+    true: [15, ctx.height - 40],
+    false:  []
+  }
 }
 
-function tick (){
+let delta, lastFrameTime, deltaFramerate = 35, speed = 1 / deltaFramerate
+
+function tick (time){
   // how to code like yandev
   // expect, better*
-  switch (island){
-    case 1:
-      // island is 1!
-      island1tick()
-      break;
-    case 2:
-      // island is 2!
-      island2tick()
-      break;
-    case 3:
-      // island is 3!
-      island3tick()
-      break;
-    case "credits":
-      openCredits()
-      break;
-    case "main menu":
-      mainmenu()
-      break;
-    default:
-      // island is not 1, 2 or 3
-      harharislandnotfound()
-      break;
-  }
-  if (Date.time % 30 == 0) /*every 30 millseconds*/ {ticks++ /* add 1 to tick */}
-  tick(1)
+  const delta = (time - lastFrameTime) * speed
+  reloadGame()
+  switchisland()
+  if (Date.now % 30 == 0) /*every 30 millseconds*/ {ticks++ /* add 1 to tick */}
+  // console.log(`small mouse x:${mouseX} mouse y:${mouseY}`)
+  // if (1 === 2){console.log('HELP!!!!!!!!!!!!!!')}
+  lastFrameTime = time
+  window.requestAnimationFrame(tick)
 }
 
-function gameLoop(){
-  tick()
-}
+// function gameLoop(){
+//   tick()
+// }
 
-gameLoop()
+IEbrowserwarning()
+
+// gameLoop()
