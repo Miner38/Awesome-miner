@@ -82,6 +82,18 @@ function buttonUpdate (id){
   drawAsset(button.asset, x, y)
 }
 
+function drawBackground() {
+
+}
+
+function drawTiles() {
+
+}
+
+function drawTheRest() {
+
+}
+
 const drawRect = ctx.drawRect
 
 function render(params) {
