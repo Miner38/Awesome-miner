@@ -1,0 +1,3 @@
+var controlVars = {
+  changeIsland: false
+}
